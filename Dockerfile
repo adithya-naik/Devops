@@ -14,4 +14,4 @@ RUN npm install
 # copy rest of the code
 COPY . .
 # commands to start the application
-CMD [ "npm" ,"dev" ]
+CMD [ "npm" ,"start" ]
