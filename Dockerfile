@@ -12,6 +12,7 @@ COPY package-lock.json .
 # keep .dockerignore file to avoid node_modules
 RUN npm install
 # copy rest of the code
+EXPOSE 3000
 COPY . .
 # commands to start the application
 CMD [ "npm" ,"start" ]
