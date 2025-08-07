@@ -1,0 +1,12 @@
+name: Schedule Workflow
+
+on:
+  schedule:
+   - cron: "52 16 * * *"
+jobs:
+  JOB1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step1
+        run: echo "Scheduled Task Executed"
+   
