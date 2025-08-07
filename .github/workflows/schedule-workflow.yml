@@ -2,7 +2,7 @@ name: Schedule Workflow
 
 on:
   schedule:
-   - cron: "32 10 * * *"
+   - cron: "35 10 * * *"
 jobs:
   JOB1:
     runs-on: ubuntu-latest
