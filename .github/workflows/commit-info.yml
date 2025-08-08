@@ -1,0 +1,40 @@
+name: Commit Info Scanner
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get commit info
+        run: |
+          echo "🔍 Getting commit information..."
+          
+          # Get the latest commit hash
+          COMMIT_HASH=$(git rev-parse HEAD)
+          
+          # Get author name
+          AUTHOR=$(git log -1 --pretty=format:'%an')
+          
+          # Get commit timestamp
+          TIMESTAMP=$(git log -1 --pretty=format:'%ad' --date=iso)
+          
+          # Count lines added in this commit
+          LINES_ADDED=$(git show --stat $COMMIT_HASH | grep "insertion" | awk '{print $4}')
+          
+          # List files changed in this commit
+          FILES_CHANGED=$(git diff-tree --no-commit-id --name-only -r $COMMIT_HASH)
+          
+          echo "--------------------------------"
+          echo "📌 Commit Hash : $COMMIT_HASH"
+          echo "👤 Author      : $AUTHOR"
+          echo "🕒 Timestamp   : $TIMESTAMP"
+          echo "➕ Lines Added : ${LINES_ADDED:-0}"
+          echo "📂 Files Changed:"
+          echo "$FILES_CHANGED"
+          echo "--------------------------------"
