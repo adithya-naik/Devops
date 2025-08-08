@@ -17,6 +17,7 @@ my_function( x, y)
 # ===========================================================================================
 
 
+# Line is added for testing wheather that commit-info is working or not
 
 # #!/bin/sh
 # # This line tells the system to run the script using 'sh' (Bourne shell)
