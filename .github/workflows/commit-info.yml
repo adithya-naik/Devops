@@ -36,5 +36,6 @@ jobs:
           echo "🕒 Timestamp   : $TIMESTAMP"
           echo "➕ Lines Added : ${LINES_ADDED:-0}"
           echo "📂 Files Changed:"
-          echo "$FILES_CHANGED"
+          printf "%s\n" "$FILES_CHANGED"
+
           echo "--------------------------------"
