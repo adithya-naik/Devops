@@ -1,3 +1,5 @@
+# revising all this - how to write dockerfile
+
 # Order matter kartha hai commands ka !!! ...
 # each step is called layer
 
@@ -6,6 +8,8 @@ FROM node:20-alpine3.18
 # set working directory
 WORKDIR /app
 # copy these 2 files
+
+# -- why these 2 copies - as we are using COPY . . later ? y to copy these separately
 COPY package.json .
 COPY package-lock.json .
 # installing dependencies
@@ -15,4 +19,6 @@ RUN npm install
 EXPOSE 3000
 COPY . .
 # commands to start the application
+
+# new way - mind this
 CMD [ "npm" ,"start" ]
