@@ -22,3 +22,19 @@ COPY . .
 
 # new way - mind this
 CMD [ "npm" ,"start" ]
+
+
+
+
+# This i sthe final image
+# FROM node:20-alpine3.18
+# WORKDIR /app
+# COPY package.json .
+# COPY package-lock.json .
+# RUN npm install
+# EXPOSE 3000
+# COPY . .
+# CMD [ "npm", "start" ]
+
+
+# Before containeraization delete node_modules/add it into .dockerignore

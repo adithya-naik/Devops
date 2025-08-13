@@ -4,7 +4,7 @@ const app = express();
 const PORT = 3000
 
 app.get("/", (req, res) => {
-  return res.send("Hello World!")
+  return res.send("Basic Server for Docker Containeraization!")
 })
 
 
@@ -18,5 +18,5 @@ app.get("/products", (req, res) => {
 })
 
 app.listen(PORT, () => {
-  console.log("n\n\nServer is runnning .... \n\n\n")
+  console.log(`n\n\nServer is runnning ....at ${PORT} \n\n\n`)
 })
